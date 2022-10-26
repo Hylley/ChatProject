@@ -1,9 +1,9 @@
 const names = ['Hylley', 'Jester', 'Rock', 'Cloud', 'Lisa', 'Popo', 'Neon', 'Sariavo', 'Lia']
 
 const UsernameInput = document.getElementById('username-input');
-UsernameInput.value = names[Math.floor(Math.random() * names.length)] + Math.floor(100 + Math.random()*(999 - 100 + 1));
-
 const MessageInput = document.getElementById('input');
+
+UsernameInput.value = names[Math.floor(Math.random() * names.length)] + Math.floor(100 + Math.random()*(999 - 100 + 1));
 
 
 MessageInput.addEventListener('keyup', function(event) {
@@ -19,7 +19,7 @@ MessageInput.addEventListener('keyup', function(event) {
             }
         }
 
-        http.open('POST', 'http://127.0.0.1:5000/send', true);
+        http.open('POST', `${document.URL}/send`, true);
         //http.setRequestHeader('Content-type', 'application/json')
 
         let params = new FormData()
