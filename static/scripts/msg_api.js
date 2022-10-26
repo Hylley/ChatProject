@@ -1,6 +1,7 @@
 const container = document.getElementById('message-containter');
+const MESSAGE_FETCH_DELAY = 1
 
-MESSAGE_FETCH_DELAY = 3
+var most_recent_message_datetime = null
 
 function NewMessage(user, content, time)
 {
@@ -18,6 +19,16 @@ function NewMessage(user, content, time)
 function LoadMessages(messages)
 {
     console.log(messages)
+    for(key in messages)
+    {
+        let datetime = new Date(messages[key]['datetime'])
+
+        container.appendChild(
+            NewMessage(messages[key]['user'], messages[key]['content'], `${datetime.getHours()}:${datetime.getMinutes()}`)
+        );
+
+        most_recent_message_datetime = messages[key]['datetime'];
+    }
 }
 
 function FetchNewMessages()
@@ -28,11 +39,18 @@ function FetchNewMessages()
     {
         if(this.readyState == 4 && this.status == 200)
         {
-            LoadMessages(this.responseText);
+            LoadMessages(JSON.parse(this.responseText));
         }
     }
 
-    http.open('GET', `${document.URL}/fetch`, true);
+    http.open(
+        'GET',
+        most_recent_message_datetime ?
+            `${document.URL}/fetch?since=${most_recent_message_datetime}`
+            : 
+            `${document.URL}/fetch`,
+        true
+    );
     http.send()
 }
 

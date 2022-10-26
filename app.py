@@ -1,6 +1,7 @@
 from flask import Flask, url_for, render_template, request
 from sqlite3 import connect
 from datetime import datetime
+from json import dumps
 
 MAX_FETCH_SIZE = 10
 
@@ -36,13 +37,21 @@ def fetch():
     cursor = connection.cursor()
 
     if not since:
-        messages = cursor.execute('SELECT * FROM geral ORDER BY column DESC LIMIT ?', (MAX_FETCH_SIZE,)).fetchall()
-        print(messages)
-        return 'GG'
+        messages = cursor.execute('SELECT * FROM geral ORDER BY datetime ASC LIMIT ?', (MAX_FETCH_SIZE,)).fetchall()
+    else:
+        messages = cursor.execute('SELECT * FROM geral WHERE DATETIME(datetime) > DATETIME(?) ORDER BY datetime ASC', (since,)).fetchall()
     
-    messages = cursor.execute('SELECT * FROM geral ORDER BY column DESC WHERE datetime < ?', (since,)).fetchall()
-    print(messages)
-    return 'GG'
+    response = {}
+
+    for i, message in enumerate(messages):
+        response[i] = {
+            'user': message[1],
+            'content': message[2],
+            'datetime': message[0]
+        }
+
+    return dumps(response, indent = 4, ensure_ascii=False).encode('utf8')
+
 
 
 
