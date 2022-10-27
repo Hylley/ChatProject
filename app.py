@@ -3,7 +3,7 @@ from sqlite3 import connect
 from datetime import datetime
 from json import dumps
 
-MAX_FETCH_SIZE = 10
+MAX_FETCH_SIZE = 100
 
 app = Flask(__name__)
 
@@ -16,13 +16,14 @@ def index():
 def send():
     user = request.form['user']
     text = request.form['text']
+    pfp = request.form['profile']
     print(user, text)
 
     if not user or not text: return 'Bad Request.', 404
     connection = connect('database.db')
     cursor = connection.cursor()
 
-    cursor.execute('INSERT INTO geral VALUES(?, ?, ?)', (datetime.now(), user, text))
+    cursor.execute('INSERT INTO geral VALUES(?, ?, ?, ?)', (datetime.now(), user, text, pfp))
     connection.commit()
     cursor.close()
     connection.close()
@@ -47,8 +48,10 @@ def fetch():
         response[i] = {
             'user': message[1],
             'content': message[2],
-            'datetime': message[0]
+            'datetime': message[0],
+            'profile': message[3]
         }
+        print(message[3])
 
     return dumps(response, indent = 4, ensure_ascii=False).encode('utf8')
 

@@ -1,14 +1,14 @@
 const container = document.getElementById('message-containter');
-const MESSAGE_FETCH_DELAY = 1
+const MESSAGE_FETCH_DELAY = 0.5
 
 var most_recent_message_datetime = null
 
-function NewMessage(user, content, time)
+function NewMessage(user, content, pfp_url, time)
 {
     let message = document.createElement('div');
     message.classList.add('message')
     message.innerHTML = `
-        <img src="https://media.tenor.com/DuThn51FjPcAAAAC/nerd-emoji-nerd.gif"/>
+        <img src="${pfp_url}"/>
         <h3>${user} <span>${time}</span></h3>
         <p>${content}</p>
     `;
@@ -24,7 +24,7 @@ function LoadMessages(messages)
         let datetime = new Date(messages[key]['datetime'])
 
         container.appendChild(
-            NewMessage(messages[key]['user'], messages[key]['content'], `${datetime.getHours()}:${datetime.getMinutes()}`)
+            NewMessage(messages[key]['user'], messages[key]['content'], messages[key]['profile'], `${datetime.getHours()}:${datetime.getMinutes()}`)
         );
 
         most_recent_message_datetime = messages[key]['datetime'];
