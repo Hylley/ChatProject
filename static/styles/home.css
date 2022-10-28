@@ -268,7 +268,7 @@ hr
 
 .message
 {
-    height: 80px;
+    min-height: 80px;
     width: 100%;
     transition: 0.3s;
     padding: 10px 0px 10px 0px;
@@ -289,8 +289,8 @@ hr
     transform: translateY(-50%);
 
     background: #00000044;
-    margin: 0px 20px 0px 10px;
-    height: 70%;
+    margin: 30px 20px -30px 10px;
+    width: 7%;
     object-fit: cover;
     border-radius: 100%;
     aspect-ratio: 1 / 1;
@@ -313,8 +313,14 @@ hr
 
 .message p
 {
-    margin-top: 4px;
+    margin: 4px 0px 0px 20px;
+    text-overflow: ellipsis;
     height: 100%;
+    max-width: 100%;
     color: #FFFFFF;
     font-family: 'Roboto Thin', sans-serif;
+
+    /*overflow: hidden;
+    text-overflow: ellipsis;*/
+
 }

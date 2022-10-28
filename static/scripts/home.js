@@ -7,6 +7,21 @@ const ProfilePicturePreview = document.getElementById('profile-pic-preview');
 
 UsernameInput.value = names[Math.floor(Math.random() * names.length)] + Math.floor(100 + Math.random()*(999 - 100 + 1));
 
+
+function InsertMessage(user, content, pfp_url, time)
+{
+    let message = document.createElement('div');
+    message.classList.add('message')
+    message.innerHTML = `
+        <img src="${pfp_url}"/>
+        <h3>${user} <span>${time}</span></h3>
+        <p>${content}</p>
+    `;
+
+    return message;
+}
+
+// Update profile picture everytime the input is changed.
 ProfilePictureInput.addEventListener('keyup', function(event){
     console.log(ProfilePictureInput.value)
     ProfilePicturePreview.src = ProfilePictureInput.value;
@@ -15,26 +30,7 @@ ProfilePictureInput.addEventListener('keyup', function(event){
 MessageInput.addEventListener('keyup', function(event) {
     if(event.key == 'Enter' & MessageInput.value != '')
     {
-        var http = new XMLHttpRequest();
-
-        http.onreadystatechange = function()
-        {
-            if(this.readyState == 4 && this.status == 200)
-            {
-                console.log(this.responseText);
-            }
-        }
-
-        http.open('POST', `${document.URL}/send`, true);
-        //http.setRequestHeader('Content-type', 'application/json')
-
-        let params = new FormData()
-        params.append('user', UsernameInput.value)
-        params.append('text', MessageInput.value)
-        params.append('profile', ProfilePictureInput.value)
-
-        http.send(params);
-        
+        SendMessage(UsernameInput.value, MessageInput.value, ProfilePictureInput.value);
         MessageInput.value = '';
     }
-});
+})

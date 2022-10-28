@@ -13,8 +13,9 @@
         <link rel='stylesheet' href={{ url_for('static', filename='styles/general.css') }}>
         <link rel='stylesheet' href={{ url_for('static', filename='styles/home.css') }}>
 
-        <script src={{ url_for('static', filename='scripts/setup.js') }} defer></script>
-        <script src={{ url_for('static', filename='scripts/msg_api.js') }} defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+        <script src={{ url_for('static', filename='scripts/home.js') }} defer></script>
+        <script src={{ url_for('static', filename='scripts/api.js') }} defer></script>
 
         <title>Concord</title>
     </head>
@@ -63,7 +64,7 @@
                 </footer>
 
                 <footer class="channels-footer-container">
-                    <input id="username-input" placeholder="Your name" type="text" value="none"></input>
+                    <input id="username-input" placeholder="Your name" maxlength="20" type="text" value="none"></input>
                     <input id="profile-pic-input" placeholder="Profile pic URL" type="text" value="https://media.tenor.com/DuThn51FjPcAAAAC/nerd-emoji-nerd.gif"></input>
                     <img id="profile-pic-preview" src="https://media.tenor.com/DuThn51FjPcAAAAC/nerd-emoji-nerd.gif"/>
                 </footer>
