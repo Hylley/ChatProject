@@ -24,7 +24,6 @@ def send():
     user = request.form['user']
     text = request.form['text']
     pfp = request.form['profile']
-    print(user, text)
 
     if not user or not text: return 'Bad Request.', 404
     connection = connect('database.db')
@@ -66,34 +65,6 @@ def fetch():
         }
 
     return dumps(response, indent = 4, ensure_ascii=False).encode('utf8')
-
-
-# @skt.on('fetch', namespace='/fetch')
-# def fetch(data):
-#     if not data: return 'Bad request', 404
-
-#     connection = connect('database.db')
-#     cursor = connection.cursor()
-
-#     if data['since'] == None:
-#         messages = cursor.execute('SELECT * FROM geral ORDER BY datetime ASC LIMIT ?', (MAX_FETCH_SIZE,)).fetchall()
-#     else:
-#         messages = cursor.execute('SELECT * FROM geral WHERE DATETIME(datetime) > DATETIME(?) ORDER BY datetime ASC', (since,)).fetchall()
-    
-#     response = {}
-
-#     for i, message in enumerate(messages):
-#         response[i] = {
-#             'user': message[1],
-#             'content': message[2],
-#             'datetime': message[0],
-#             'profile': message[3]
-#         }
-
-#     emit('fetch', dumps(response, indent = 4, ensure_ascii=False).encode('utf8'), json=True, broadcast=True)
-
-
-
 
 
 if __name__ == '__main__':
