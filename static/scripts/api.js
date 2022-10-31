@@ -18,7 +18,6 @@ function SendMessage(user, text, pfp)
     }
 
     http.open('POST', `/send`, true);
-    //http.setRequestHeader('Content-type', 'application/json')
 
     let params = new FormData()
     params.append('user', user)

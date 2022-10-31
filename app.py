@@ -24,7 +24,6 @@ def send():
     user = request.form['user']
     text = request.form['text']
     pfp = request.form['profile']
-    print(user, text)
 
     if not user or not text: return 'Bad Request.', 404
     connection = connect('database.db')
