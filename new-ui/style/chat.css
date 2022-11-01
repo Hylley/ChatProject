@@ -1,0 +1,27 @@
+.column
+{
+    float: left;
+    height: 100%;
+    margin: 0;
+}
+
+/* SERVERS LIST */
+#servers-list
+{
+    width: 5%;
+    background: var(--servers-list-background);
+}
+
+/* CHANNELS SIDEBAR */
+#channels-sidebar
+{
+    width: 15%;
+    background: var(--channels-sidebar-background);
+}
+
+/* CHAT WINDOW */
+#chat-window
+{
+    width: 80%;
+    background: var(--chat-window-background);
+}
