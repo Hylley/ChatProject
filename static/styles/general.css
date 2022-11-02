@@ -1,12 +1,13 @@
-/* MAIN STRUCTURE */
+:root {
+    --background: linear-gradient(45deg, rgb(29, 19, 65), rgb(29, 29, 29), rgb(28, 37, 51));
+    --chat-window-background: #00000000;
+    --channels-sidebar-background: #00000000;
+    --servers-list-background: #00000000;
 
-*
-{
-    margin: 0;
-	padding: 0;
+    --transitions-duration: 0.3s;
 }
 
-html, body
-{
-    height: 100%;
+body{
+    background: var(--background);
+    margin: 0;
 }

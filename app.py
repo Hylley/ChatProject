@@ -3,7 +3,6 @@ from flask_socketio import SocketIO, emit
 from sqlite3 import connect
 from datetime import datetime
 from json import dumps
-from waitress import serve
 from eventlet import monkey_patch
 monkey_patch()
 

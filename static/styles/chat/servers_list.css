@@ -1,0 +1,11 @@
+#servers-list
+{
+    width: 5%;
+    background: var(--servers-list-background);
+}
+
+#servers-line
+{
+    width: 50%;
+    border-color: rgba(255, 255, 255, 0.1);
+}

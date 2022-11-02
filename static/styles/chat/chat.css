@@ -1,0 +1,11 @@
+@import url(../channels_list.css);
+@import url(../chat_window.css);
+@import url(../servers_list.css);
+@import url(../../buttons.css);
+
+/* PAGE FORMAT */
+.column
+{
+    float: left;
+    height: 100vh;
+}

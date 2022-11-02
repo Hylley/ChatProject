@@ -1,0 +1,19 @@
+.rounded-button
+{
+    background: #00000000;
+    border-style: none;
+    padding: 10%;
+}
+.rounded-button img
+{
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 100%;
+    transition-duration: var(--transitions-duration);
+}
+.rounded-button img:hover
+{
+    border-radius: 30%;
+    cursor: pointer;
+}

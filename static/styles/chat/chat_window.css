@@ -1,0 +1,5 @@
+#chat-window
+{
+    width: 80%;
+    background: var(--chat-window-background);
+}
