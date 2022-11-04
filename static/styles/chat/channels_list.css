@@ -61,13 +61,13 @@
     background: #00000000;
 }
 
-#profile-config #nickname
+#profile-config #username-input
 {
     height: 20%;
     font-size: 1.5em;
 }
 
-#profile-config #pfp-url
+#profile-config #profile-pic-input
 {
     height: 10%;
     text-decoration: underline;
@@ -79,5 +79,5 @@
     aspect-ratio: 1/1;
     object-fit: cover;
     background: #00000000;
-    border-radius: 60px;
+    border-radius: 999px;
 }

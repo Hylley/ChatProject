@@ -1,7 +1,7 @@
 const names = ['Hylley', 'Jester', 'Rock', 'Cloud', 'Lisa', 'Popo', 'Neon', 'Sariavo', 'Lia']
 
 const UsernameInput = document.getElementById('username-input');
-const MessageInput = document.getElementById('input');
+const MessageInput = document.getElementById('message-input');
 const ProfilePictureInput = document.getElementById('profile-pic-input')
 const ProfilePicturePreview = document.getElementById('profile-pic-preview');
 
@@ -18,7 +18,10 @@ function InsertMessage(user, content, pfp_url, time)
         <p>${content}</p>
     `;
 
-    return message;
+    container.insertBefore(
+        message,
+        container.firstChild
+    );
 }
 
 // Update profile picture everytime the input is changed.

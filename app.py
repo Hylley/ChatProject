@@ -6,7 +6,6 @@ from json import dumps
 from eventlet import monkey_patch
 monkey_patch()
 
-
 MAX_FETCH_SIZE = 50
 
 app = Flask(__name__)

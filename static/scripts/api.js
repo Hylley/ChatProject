@@ -49,12 +49,7 @@ function UnpackMessages(messages)
     for(key in messages)
     {
         let datetime = new Date(messages[key]['datetime'])
-
-        container.appendChild(
-            InsertMessage(messages[key]['user'], messages[key]['content'], messages[key]['profile'], `${datetime.getHours()}:${datetime.getMinutes()}`)
-        );
-
-        most_recent_message_datetime = messages[key]['datetime'];
+        InsertMessage(messages[key]['user'], messages[key]['content'], messages[key]['profile'], `${datetime.getHours()}:${datetime.getMinutes()}`)
     }
 }
 

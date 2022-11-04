@@ -5,6 +5,10 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+        <script src={{ url_for('static', filename='scripts/home.js') }} defer></script>
+        <script src={{ url_for('static', filename='scripts/api.js') }} defer></script>
+
         <link rel="stylesheet" href={{ url_for('static', filename='styles/general.css') }}/>
         <link rel="stylesheet" href={{ url_for('static', filename='styles/chat/chat.css') }}/>
 
@@ -37,7 +41,7 @@
             </button>
 
             <button class="rounded-button">
-                <img src="static/+.png">
+                <img src={{ url_for('static', filename='images/+.png') }}>
             </button>
         </nav>
 
@@ -47,7 +51,7 @@
             </header>
 
             <div id="channels-list">
-                E
+                
             </div>
 
             <footer id="profile-config">
@@ -58,7 +62,10 @@
         </aside>
 
         <div id="chat-window" class="column">
-            C
+            <div id="message-containter">
+                
+            </div>
+            <input id="message-input" type="text" placeholder="Olá mundo!"></input>
         </div>
    </body>
 </html>
