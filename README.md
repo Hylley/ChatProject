@@ -1,6 +1,6 @@
 # Concord
 
-A simple Discord inspired clone fullstack web chat using Flask and SQLite.
+A simple Discord-inspired fullstack web chat using Flask, Socket IO and SQLite.
 You can see the live demo [here](concord.hylley.repl.co).
 
 ## Built with
